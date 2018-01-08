@@ -1,0 +1,5 @@
+package com.ty.account.account;
+
+
+public class AccountController {
+}

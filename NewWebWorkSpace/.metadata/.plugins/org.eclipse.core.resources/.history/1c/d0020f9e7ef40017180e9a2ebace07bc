@@ -1,0 +1,9 @@
+package com.ty.Allinterface;
+
+import com.ty.account.bean.AccountRegisterResponse;
+import com.ty.account.bean.User;
+
+public interface IAccountService {
+	
+	public AccountRegisterResponse registerAccount(User user);
+}

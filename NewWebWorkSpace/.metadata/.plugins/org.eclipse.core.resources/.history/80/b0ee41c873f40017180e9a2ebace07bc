@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ty.account.dao.AccountmMapper" >
+  <select id="queryAccount" parameterType="String">
+  		select count(*) from user where user_account=${accountName}
+  </select>
+  <insert id="registerAccount" parameterType="">
+  
+  
+  </insert>
+</mapper>

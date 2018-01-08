@@ -1,0 +1,6 @@
+package com.ty.account.bean;
+
+public class AccountRegisterResponse {
+	boolean success;
+	String reason;
+}

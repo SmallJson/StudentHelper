@@ -1,0 +1,21 @@
+package accountController;
+
+import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.annotation.Rollback;
+
+import com.ty.account.bean.User;
+import com.ty.account.controller.AccountController;
+
+public class AccountControllerTest {
+	@Autowired
+	AccountController accountControllerr;
+	@Test
+	@Rollback(false)
+	public void test(){
+		User user  = new User();
+		user.accountName ="jason";
+		user.accountPassword = "hello";
+		System.out.println(registerAccount(user));
+	}
+}	

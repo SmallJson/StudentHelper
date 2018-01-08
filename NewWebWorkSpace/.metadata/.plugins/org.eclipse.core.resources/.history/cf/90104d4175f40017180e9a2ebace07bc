@@ -1,0 +1,21 @@
+package com.ty.account.controller;
+
+import org.omg.CORBA.PUBLIC_MEMBER;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.messaging.simp.annotation.SendToUser;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.ty.account.bean.User;
+import com.ty.account.service.AccountService;
+
+@Controller
+public class AccountController {
+	@Autowired
+	public AccountService AccountService;
+	@RequestMapping("/account/register")
+	public void registerAccount(@RequestBody User user){
+		
+	}
+}

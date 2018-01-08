@@ -1,0 +1,5 @@
+package com.ty.account.dao;
+
+public interface AccountMapper {
+	public int queryAccount(String AccountName){}
+}

@@ -2,3 +2,40 @@
 1515397483049	Rename resource 'WEB-ING'
 1515398784579	Delete elements
 1515399136680	Delete element
+1515404816572	Delete element
+1515404842580	Delete element
+1515404869926	Copy package
+1515404872361	Delete element
+1515404925248	Copy package
+1515404929596	Delete element
+1515404948389	Delete element
+1515404953703	Delete element
+1515404979776	Delete element
+1515405023312	Move compilation unit
+1515412896443	Delete element
+1515413101957	Rename package 'com.ty.account.account'
+1515413144043	Copy package
+1515413147077	Delete element
+1515413153294	Delete element
+1515413216652	Rename package 'com.ty.account.service'
+1515413231702	Delete element
+1515413243270	Copy package
+1515413246088	Delete element
+1515413292842	Delete element
+1515413301350	Delete element
+1515413323622	Delete element
+1515413334404	Rename package 'com.ty.account'
+1515413360965	Delete element
+1515413407858	Delete element
+1515413809616	Delete element
+1515413843097	Rename type 'IAccountDaoo'
+1515415920066	Delete element
+1515415942802	Copy elements
+1515415948697	Delete elements
+1515417219442	Delete element
+1515417281320	Rename type 'idUtills'
+1515418092183	Rename compilation unit 'BaseTest.java'
+1515418960007	Delete element
+1515421031316	Move compilation unit
+1515421034567	Delete element
+1515421331721	Rename type 'AccountRegisterResponse'

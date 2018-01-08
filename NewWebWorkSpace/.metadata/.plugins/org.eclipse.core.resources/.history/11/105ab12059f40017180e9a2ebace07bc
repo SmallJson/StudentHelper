@@ -1,0 +1,5 @@
+package com.ty.accont.controller.copy;
+
+public class AccountController {
+	
+}

@@ -1,0 +1,6 @@
+package com.ty.account.account;
+
+@Controller
+public class AccountController {
+	public 
+}

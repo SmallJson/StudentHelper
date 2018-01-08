@@ -1,0 +1,8 @@
+package com.ty.utills;
+
+public class IdUtills {
+	
+	public static String getUUID(){
+		
+	}
+}

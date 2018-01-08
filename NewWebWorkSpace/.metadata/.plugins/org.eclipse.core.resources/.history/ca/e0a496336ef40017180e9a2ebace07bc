@@ -1,0 +1,7 @@
+package com.ty.Allinterface;
+
+import com.ty.account.bean.User;
+
+public interface IAccountDao {
+	public boolean isExist(String accountName){}
+}

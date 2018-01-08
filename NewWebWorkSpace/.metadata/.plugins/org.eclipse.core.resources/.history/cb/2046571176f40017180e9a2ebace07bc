@@ -1,0 +1,37 @@
+package com.ty.account.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.ty.Allinterface.IAccountService;
+import com.ty.account.bean.AccountRegisterResponse;
+import com.ty.account.bean.User;
+import com.ty.account.dao.AccountDao;
+import com.ty.utills.IdUtills;
+
+@Service
+public class AccountService implements IAccountService{
+	
+	@Autowired
+	public AccountDao accountDao;
+	
+	@Override
+	public AccountRegisterResponse registerAccount(User user){
+		AccountRegisterResponse response = new AccountRegisterResponse();
+		user.userID = IdUtills.getUUID();
+		if(!accountDao.isExist(user.accountName)){
+			if(accountDao.registerAccount(user)==1){
+				response.success=true;
+				response.reason="注册成功";
+			}
+			else{
+				response.success=false;
+				response.reason="数据库插入失败";
+			}
+		}else {
+			response.reason="用户名已经存在";
+			response.success=false;
+		}
+		return response;
+	}
+}

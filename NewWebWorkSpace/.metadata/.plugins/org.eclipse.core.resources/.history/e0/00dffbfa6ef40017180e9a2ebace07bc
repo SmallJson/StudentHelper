@@ -1,0 +1,23 @@
+package com.ty.account.dao;
+
+import org.springframework.stereotype.Repository;
+
+import com.ty.Allinterface.IAccountDao;
+import com.ty.account.bean.User;
+
+@Repository
+public class AccountDao implements IAccountDao{
+
+	@Override
+	public boolean isExist(String accountName) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean registerAccount(User user) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	
+}

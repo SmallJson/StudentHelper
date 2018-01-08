@@ -1,0 +1,17 @@
+package com.ty.account.account;
+
+import org.springframework.messaging.simp.annotation.SendToUser;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.ty.account.bean.User;
+
+@Controller
+public class AccountController {
+	
+	@RequestMapping("/account/register")
+	public void registerAccount(@RequestBody User user){
+		
+	}
+}

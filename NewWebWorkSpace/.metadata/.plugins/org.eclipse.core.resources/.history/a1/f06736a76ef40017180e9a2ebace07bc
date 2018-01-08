@@ -1,0 +1,22 @@
+package com.ty.account.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.ty.Allinterface.IAccountService;
+import com.ty.account.bean.AccountRegisterResponse;
+import com.ty.account.dao.AccountDao;
+
+@Service
+public class AccountService implements IAccountService{
+	@Override
+	@Autowired
+	public AccountDao accountDao;
+	public AccountRegisterResponse registerAccount(){
+		AccountRegisterResponse response = new AccountRegisterResponse();
+		if(accountDao.)
+		
+		
+		return response;
+	}
+}

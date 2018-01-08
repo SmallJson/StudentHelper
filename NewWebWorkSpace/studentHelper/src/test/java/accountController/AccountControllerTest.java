@@ -1,0 +1,35 @@
+package accountController;
+
+import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.annotation.Rollback;
+
+import com.ty.account.bean.User;
+import com.ty.account.controller.AccountController;
+
+import studentHelper.BaseJunit4Test;
+
+public class AccountControllerTest extends BaseJunit4Test{
+	@Autowired
+	AccountController accountController;
+	
+	//注册功能的单元测试代码
+	@Test
+	@Rollback(false)
+	public void testRegister(){
+		User user  = new User();
+		user.accountName ="jasonTu";
+		user.accountPassword = "hello";
+		System.out.println(accountController.registerAccount(user));
+	}
+	
+	//注册功能的单元测试代码
+	@Test
+	@Rollback(false)
+	public void testLogin(){
+		User user  = new User();
+		user.accountName ="jasonTu";
+		user.accountPassword = "hello";
+		System.out.println(accountController.loginAccount(user));
+	}
+}	
