@@ -1,0 +1,10 @@
+package com.ty.Allinterface;
+
+import com.ty.account.bean.Account;
+
+//操纵redis的接口
+public interface IRedisUtills {
+	public void setAccount(String key,Account user);
+	public Account getUser(String key);
+	public void setExpire(String key,int time);
+}

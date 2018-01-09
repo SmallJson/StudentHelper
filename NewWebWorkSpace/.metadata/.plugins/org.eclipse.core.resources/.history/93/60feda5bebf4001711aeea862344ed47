@@ -1,0 +1,12 @@
+package com.ty.Allinterface;
+
+import com.ty.account.bean.User;
+import com.ty.account.bean.UserDetails;
+
+public interface IAccountDao {
+	//查询账户是否存在
+	public boolean isExist(String accountName);
+	public int registerAccount(User user);
+	public boolean loginAccount(User user);
+	public boolean registerAccountDao(UserDetails details);
+}

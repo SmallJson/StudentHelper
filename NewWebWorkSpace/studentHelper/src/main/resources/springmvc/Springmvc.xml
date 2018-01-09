@@ -7,7 +7,12 @@
         http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd
          http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd">
-	<context:component-scan base-package="com.ty.account.controller"/>
+    
+    <!--只扫描带有@Controller-->
+	<context:component-scan base-package="com.ty.account" use-default-filters="false">
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/> 
+	</context:component-scan>
+	
 	<!--配置springMVC的注解驱动-->
 	<mvc:annotation-driven/>
 	<!--设置不拦截静态资源-->

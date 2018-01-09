@@ -1,0 +1,12 @@
+package com.ty.account.bean;
+
+public class UserDetails {
+	public String accountName;
+	public String accountPassword;
+	//用户登录的时候，可携带token
+	public String token;
+	public String detailName;
+	public String detailImage;
+	public String detailMail;
+	public String detailWord;
+}

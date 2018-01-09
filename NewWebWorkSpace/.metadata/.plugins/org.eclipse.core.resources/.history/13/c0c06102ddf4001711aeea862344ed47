@@ -1,0 +1,7 @@
+package com.ty.utills;
+
+import com.ty.Allinterface.IRedisUtills;
+
+public class RedisCluster implements IRedisUtills{
+
+}

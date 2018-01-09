@@ -1,0 +1,14 @@
+package com.ty.account.dao;
+
+import com.ty.Allinterface.IAccountDetailDao;
+import com.ty.account.bean.AccountDetails;
+
+public class AccountDetailDao implements IAccountDetailDao {
+
+	@Override
+	public int registerAccountDetail(AccountDetails details) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	
+}

@@ -1,0 +1,6 @@
+package com.ty.utills;
+
+public class RedisKey {
+	public static final String USER_NAME_IN_REDIS = "accountName";
+	public static final String USER_PASSWORD_IN_REDIS = "accountPassword";
+}

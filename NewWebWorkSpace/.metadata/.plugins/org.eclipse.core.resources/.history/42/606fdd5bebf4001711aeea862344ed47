@@ -1,0 +1,13 @@
+package com.ty.Allinterface;
+
+import com.ty.account.bean.User;
+import com.ty.account.bean.UserDetails;
+import com.ty.jsonBean.SuccessResponse;
+
+public interface IAccountService {
+	public SuccessResponse registerAccount(User user);
+	public SuccessResponse loginAccount(User user);
+	public boolean isLogin(String token);
+	//完善用户信息
+	public void registerAccountDetails(UserDetails userDetails);
+}

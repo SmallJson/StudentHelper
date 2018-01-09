@@ -1,0 +1,21 @@
+package com.ty.utills;
+
+import com.ty.Allinterface.IRedisUtills;
+import com.ty.account.bean.User;
+
+//集群版的redisClient
+public class RedisCluster implements IRedisUtills{
+	
+	@Override
+	public void setUser(String key, User user) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public User getUser(String key) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+}

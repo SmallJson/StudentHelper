@@ -1,0 +1,114 @@
+package com.ty.account.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.messaging.simp.user.UserRegistryMessageHandler;
+import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.support.StringMultipartFileEditor;
+
+import com.fasterxml.jackson.annotation.JsonTypeInfo.Id;
+import com.mysql.jdbc.jdbc2.optional.SuspendableXAConnection;
+import com.ty.Allinterface.IAccountService;
+import com.ty.Allinterface.IRedisUtills;
+import com.ty.account.bean.Account;
+import com.ty.account.bean.AccountDetails;
+import com.ty.account.dao.AccountDao;
+import com.ty.jsonBean.SuccessResponse;
+import com.ty.utills.IdUtills;
+import com.ty.utills.RedisClient;
+
+@Service
+public class AccountService implements IAccountService{
+	
+	@Autowired
+	public AccountDao accountDao;
+	@Autowired
+	public IRedisUtills redisClient;
+	
+	@Override
+	public SuccessResponse registerAccount(Account user){
+		SuccessResponse response = new SuccessResponse();
+		user.userID = IdUtills.getUUID();
+		if(!accountDao.isExist(user.accountName)){
+			//user生成唯一的uid
+			user.userID = IdUtills.getUUID();
+			if(accountDao.registerAccount(user)==1){
+				response.success=true;
+				response.reason="注册成功";
+			}
+			else{
+				response.success=false;
+				response.reason="数据库插入失败";
+			}
+		}else {
+			response.reason="用户名已经存在";
+			response.success=false;
+		}
+		return response;
+	}
+	//后期需要实现单点登录的逻辑代码
+	//实现单点登录便于后期的分布式开发
+	@Override
+	public SuccessResponse loginAccount(Account user){
+		SuccessResponse successResponse = new SuccessResponse();
+		if(!isLogin(user.token)){
+			if(accountDao.isExist(user.accountName)){
+				if(accountDao.loginAccount(user)){
+					successResponse.success=true;
+					successResponse.reason="登录成功";
+					//单点登录需要生成唯一性的token
+					String token = IdUtills.getUUID();
+					//token作为key，将user设置到redis缓存中
+					redisClient.setAccount(token, user);
+					successResponse.token=token;
+					//key的过期时间设置为10天
+					redisClient.setExpire(token, 60*60*24*10);
+				}
+				else {
+					successResponse.success=false;
+					successResponse.reason="账户名密码错误";
+				}
+			}else{
+				successResponse.success=false;
+				successResponse.reason="账户名不存在";
+			}
+		}else{
+			successResponse.success=true;
+			successResponse.reason="已经登录";
+			successResponse.token = user.token;
+			//key的过期时间设置为10天
+			redisClient.setExpire(user.token, 60*60*24*10);
+		}
+		return successResponse;
+	}
+	@Override
+	public boolean isLogin(String token){
+		if((token!=null)&&(redisClient.getAccount(token)!=null)){
+			return true;
+		}else {
+			return false;
+		}
+	}
+	@Override
+	public void registerAccountDetails(AccountDetails userDetails) {
+		// TODO Auto-generated method stub
+		//1.首先从换存中判断是否已经登录
+		if(isLogin(userDetails.token)){
+			//缓存中已经登录
+			
+			//首先给userDetails生成一个数据库表中的唯一标识 uuid
+			String userDetailID = IdUtills.getUUID();
+			userDetails.userDetailID = userDetailID;
+			
+			//获取account信息，然后赋值
+			Account user = redisClient.getAccount(userDetails.token);
+			userDetails.accountName = user.accountName;
+			userDetails.accountPassword = user.accountPassword;
+			
+			
+			
+			accountDao.registerAccountDetail(userDetails);
+		}else{
+			//缓存中尚未登录
+		}
+	}
+}

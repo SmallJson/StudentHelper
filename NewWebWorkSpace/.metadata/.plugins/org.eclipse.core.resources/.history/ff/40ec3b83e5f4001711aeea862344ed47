@@ -1,0 +1,9 @@
+package com.ty.Allinterface;
+
+import com.ty.account.bean.User;
+
+//操纵redis的接口
+public interface IRedisUtills {
+	public void setUser(String key,User user);
+	public User getUser(String key);
+}

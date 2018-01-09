@@ -39,3 +39,12 @@
 1515421031316	Move compilation unit
 1515421034567	Delete element
 1515421331721	Rename type 'AccountRegisterResponse'
+1515461524497	Rename compilation unit 'RedisUtills.java'
+1515461540589	Rename type 'RedisClientUtills'
+1515462077144	Delete element
+1515462196173	Rename type 'ContansUtills'
+1515462599216	Copy file
+1515467735516	Rename type 'User'
+1515467745192	Rename type 'UserDetails'
+1515480720747	Rename method 'setUser'
+1515480731308	Rename method 'getUser'

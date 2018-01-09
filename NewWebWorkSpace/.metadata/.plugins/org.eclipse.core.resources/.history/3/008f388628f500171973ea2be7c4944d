@@ -1,0 +1,53 @@
+package com.ty.account.controller;
+
+import org.junit.Test;
+import org.omg.CORBA.PUBLIC_MEMBER;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.messaging.simp.annotation.SendToUser;
+import org.springframework.stereotype.Controller;
+import org.springframework.test.annotation.Rollback;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.ty.Allinterface.IAccountService;
+import com.ty.account.bean.Account;
+import com.ty.account.bean.AccountDetails;
+import com.ty.account.service.AccountService;
+import com.ty.jsonBean.SuccessResponse;
+
+import studentHelper.BaseJunit4Test;
+
+@Controller
+public class AccountController{
+	@Autowired
+	public IAccountService accountService;
+	
+	@RequestMapping("/account/register")
+	@ResponseBody
+	public  SuccessResponse registerAccount(@RequestBody Account user){
+		return accountService.registerAccount(user);
+	}
+	
+	@RequestMapping("account/login")
+	@ResponseBody
+	public SuccessResponse loginAccount(@RequestBody Account user){
+		return accountService.loginAccount(user);
+	}
+	
+	@RequestMapping("account/detail")
+	@ResponseBody
+	public SuccessResponse registerAccountDetail(@RequestBody AccountDetails accountDetails){
+		SuccessResponse response=null;
+		try {
+			response = accountService.registerAccountDetails(accountDetails);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			response = new SuccessResponse();
+			response.success = false;
+			response.reason="更新失败"
+		}
+		return response;
+	}
+}

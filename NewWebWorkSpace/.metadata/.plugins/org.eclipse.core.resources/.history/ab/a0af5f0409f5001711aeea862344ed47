@@ -1,0 +1,7 @@
+package com.ty.Allinterface;
+
+import com.ty.account.bean.AccountDetails;
+
+public interface IAccountDetailDao {
+	public int registerAccountDetail(AccountDetails details);
+}

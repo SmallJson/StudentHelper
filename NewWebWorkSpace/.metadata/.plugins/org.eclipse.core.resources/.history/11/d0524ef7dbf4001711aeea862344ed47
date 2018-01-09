@@ -1,0 +1,5 @@
+package com.ty.Allinterface;
+//操纵redis的接口
+public interface IRedisUtills {
+
+}

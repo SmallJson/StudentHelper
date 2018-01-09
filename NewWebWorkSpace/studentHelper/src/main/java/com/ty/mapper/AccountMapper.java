@@ -1,9 +1,11 @@
 package com.ty.mapper;
 
-import com.ty.account.bean.User;
+import com.ty.account.bean.Account;
+import com.ty.account.bean.AccountDetails;
 
 public interface AccountMapper {
 	public int queryAccount(String accountName);
-	public int insertAccount(User user);
-	public int queryAccountByNameAndPassword(User user);
+	public int insertAccount(Account user);
+	public int queryAccountByNameAndPassword(Account user);
+	public int updateAccoutByName(AccountDetails userDetails);
 }

@@ -1,0 +1,29 @@
+package com.ty.utills;
+
+import java.util.*;
+
+import com.ty.Allinterface.IRedisUtills;
+import com.ty.account.bean.User;
+
+import redis.clients.jedis.Jedis;
+import redis.clients.jedis.JedisPool;
+//在程序设计中，不要使用字面常量
+public class RedisClient implements IRedisUtills{
+	JedisPool jedisPool;
+	@Override
+	public void setUser(String key, User user) {
+		// TODO Auto-generated method stub
+		Jedis jedis = jedisPool.getResource();
+		HashMap<String, String> map = new HashMap<String,String>();
+		map.put(RedisKey.USER_NAME_IN_REDIS, user.accountName);
+		map.put(RedisKey.USER_NAME_IN_REDIS,user.accountPassword);
+		jedis.hmset(key, map);
+	}
+	@Override
+	public User getUser(String key) {
+		// TODO Auto-generated method stub
+		Jedis jedis = jedisPool.getResource();
+		List<String> list = jedis.hmget(key,RedisKey.USER_NAME_IN_REDIS,RedisKey.USER_NAME_IN_REDIS);
+		return null;
+	}
+}

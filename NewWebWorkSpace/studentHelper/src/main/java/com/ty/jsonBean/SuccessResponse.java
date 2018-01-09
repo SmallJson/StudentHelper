@@ -4,8 +4,11 @@ package com.ty.jsonBean;
 public class SuccessResponse {
 	public boolean success;
 	public String reason;
+	//登录成功的时候，携带token。
+	public String token;
 	@Override
 	public String toString() {
-		return "AccountRegisterResponse [success=" + success + ", reason=" + reason + "]";
+		return "SuccessResponse [success=" + success + ", reason=" + reason + ", token=" + token + "]";
 	}
+
 }

@@ -1,0 +1,31 @@
+package com.ty.utills;
+
+import java.util.HashMap;
+
+import com.ty.Allinterface.IRedisUtills;
+import com.ty.account.bean.User;
+
+import redis.clients.jedis.Jedis;
+import redis.clients.jedis.JedisPool;
+
+public class RedisClient implements IRedisUtills{
+	
+	JedisPool jedisPool;
+	
+	@Override
+	public void setUser(String key, User user) {
+		// TODO Auto-generated method stub
+		Jedis jedis = jedisPool.getResource();
+		HashMap<String, String> map = new HashMap<String,String>();
+		map.put("accountName", user.accountName);
+		map.put("accountName",user.accountPassword);
+		jedis.hmset(key, map);
+		
+	}
+
+	@Override
+	public User getUser(String key) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+}

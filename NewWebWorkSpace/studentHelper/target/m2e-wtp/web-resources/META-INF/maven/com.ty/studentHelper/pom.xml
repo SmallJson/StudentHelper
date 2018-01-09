@@ -115,9 +115,8 @@
 				<version>${junit.version}</version>
 				<scope>test</scope>
 			</dependency>
-		
-		<!-- 文件上传组件 -->
-		<dependency>
+			<!-- 文件上传组件 -->
+			<dependency>
 				<groupId>commons-fileupload</groupId>
 				<artifactId>commons-fileupload</artifactId>
 				<version>${commons-fileupload.version}</version>
@@ -126,6 +125,12 @@
 			<dependency>
 				<groupId>com.fasterxml.jackson.core</groupId>
 				<artifactId>jackson-databind</artifactId>
+			</dependency>
+		<!-- Redis客户端 -->
+			<dependency>
+				<groupId>redis.clients</groupId>
+				<artifactId>jedis</artifactId>
+				<version>${jedis.version}</version>
 			</dependency>
     </dependencies>
     <!--maven管理tomact的插件-->
